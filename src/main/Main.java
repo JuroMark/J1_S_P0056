@@ -15,7 +15,8 @@ public class Main {
         SalaryHistoryBO salarybo = new SalaryHistoryBO(new ArrayList<>());
 
         while (true) {
-            System.out.println("1. Add doctor");
+            System.out.println("====== Worker Management ======");
+            System.out.println("1. Add worker");
             System.out.println("2. Update salary");
             System.out.println("3. Display list worker");
             System.out.println("4. Display list salary update");
