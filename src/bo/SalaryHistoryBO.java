@@ -48,11 +48,9 @@ public class SalaryHistoryBO {
         }
         String status = newSalary > currentSalary ? "up" : "down";
 
-        // Tạo đối tượng SalaryHistory với lương mới (newSalary) thay vì currentSalary
         SalaryHistory sh = new SalaryHistory(worker.getId(), status, java.time.LocalDateTime.now(),
                 worker.getName(), worker.getAge(), newSalary);
 
-        // Đồng bộ lương của worker với newSalary
         worker.setSalary(newSalary);
         this.listSalary.add(sh);
         System.out.println("Salary updated successfully. New salary: " + worker.getSalary());
@@ -60,7 +58,6 @@ public class SalaryHistoryBO {
 
     public void add(Worker worker, int amount) {
         SalaryHistory sh = new SalaryHistory();
-        // Vì id đã được tự sinh ở Worker, ta không cần cập nhật id
         sh.setName(worker.getName());
         sh.setAge(worker.getAge());
         sh.setSalary(worker.getSalary());
