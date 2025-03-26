@@ -40,24 +40,6 @@ public class SalaryHistoryBO {
      * @param worker    the worker whose salary is to be updated.
      * @param newSalary the new salary value.
      */
-    // public void updateWorkerSalary(Worker worker, int newSalary) {
-    // int currentSalary = worker.getSalary();
-    // if (newSalary == currentSalary) {
-    // System.out.println("New salary is same as current salary. No update
-    // performed.");
-    // return;
-    // }
-    // String status = newSalary > currentSalary ? "up" : "down";
-
-    // SalaryHistory sh = new SalaryHistory(worker.getId(), status,
-    // java.time.LocalDateTime.now(),
-    // worker.getName(), worker.getAge(), newSalary);
-
-    // worker.setSalary(newSalary);
-    // this.listSalary.add(sh);
-    // System.out.println("Salary updated successfully. New salary: " +
-    // worker.getSalary());
-    // }
 
     public void add(Worker worker, int newSalary) {
         int currentSalary = worker.getSalary();
