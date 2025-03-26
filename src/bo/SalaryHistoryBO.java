@@ -23,15 +23,6 @@ public class SalaryHistoryBO {
     }
 
     /**
-     * Update worker's salary based on the status and amount.
-     * 
-     * @param updateworker worker whose salary is being updated.
-     * @param status       determines whether the salary should be increased or
-     *                     decreased.
-     * @param amount       amount the salary should be adjusted.
-     */
-
-    /**
      * Updates worker's salary using the new salary value provided.
      * It calculates the difference, determines the status ("up" or "down"),
      * updates the salary in the history record, synchronizes the worker's salary,

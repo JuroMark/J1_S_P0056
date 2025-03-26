@@ -77,11 +77,4 @@ public class Worker {
                 this.salary);
     }
 
-    public void updateSalary(String status, int amount) {
-        if (status.equalsIgnoreCase("up")) {
-            this.salary += amount;
-        } else {
-            this.salary -= amount;
-        }
-    }
 }
