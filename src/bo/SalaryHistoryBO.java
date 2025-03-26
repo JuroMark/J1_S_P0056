@@ -57,7 +57,7 @@ public class SalaryHistoryBO {
         int diff = Math.abs(newSalary - currentSalary);
 
         SalaryHistory sh = new SalaryHistory();
-        sh.setId(worker.getId());
+        worker.getId();
         sh.setName(worker.getName());
         sh.setAge(worker.getAge());
         sh.setSalary(currentSalary);
@@ -72,7 +72,7 @@ public class SalaryHistoryBO {
 
     public void add(Worker worker, int amount) {
         SalaryHistory updateworker = new SalaryHistory();
-        updateworker.setId(worker.getId());
+        worker.getId();
         updateworker.setName(worker.getName());
         updateworker.setSalary(worker.getSalary());
         updateworker.setAge(worker.getAge());
@@ -89,7 +89,7 @@ public class SalaryHistoryBO {
             return;
         }
         System.out.printf("%-10s%-20s%-10s%-15s%-10s%-20s\n",
-                "Code", "Name", "Age", "Salary", "Status", "Date");
+                "ID", "Name", "Age", "Salary", "Status", "Time");
         for (SalaryHistory salaryworker : listSalary) {
             salaryworker.display();
             System.out.println("");

@@ -14,7 +14,7 @@ public class SalaryHistory extends Worker {
     }
 
     public SalaryHistory(String status, LocalDateTime date, String id, String name, int age, int salary) {
-        super(id, name, age, salary);
+        super(name, age, salary);
         this.status = status;
         this.date = date;
     }

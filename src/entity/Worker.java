@@ -6,16 +6,18 @@ import constant.IConstant;
 import bo.WorkerBO;
 
 public class Worker {
+    private static int count = 1;
     private String id;
     private String name;
     private int age;
     private int salary;
 
     public Worker() {
+        this.id = "W" + count++;
     }
 
-    public Worker(String id, String name, int age, int salary) {
-        this.id = id;
+    public Worker(String name, int age, int salary) {
+        this.id = "W" + count++;
         this.name = name;
         this.age = age;
         this.salary = salary;
@@ -23,10 +25,6 @@ public class Worker {
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -54,14 +52,7 @@ public class Worker {
     }
 
     public void input(WorkerBO wbo) {
-        this.id = Validate.getString(
-                "Ener Worker id: ",
-                IConstant.VALID_ID,
-                IMessage.ENTER_AGAIN);
-        if (wbo.searchWorkerById(this.id) != null) {
-            System.out.println(IMessage.VALUE_EXIST);
-            return;
-        }
+        System.out.println("Worker Code: " + this.id);
         this.name = Validate.getString(
                 "Enter Worker name: ",
                 IConstant.REGULAR_STRING,
