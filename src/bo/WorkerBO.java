@@ -22,7 +22,7 @@ public class WorkerBO {
     }
 
     public Worker searchWorkerById(String id) {
-        if (list == null || list.isEmpty()) {
+        if (list.isEmpty()) {
             return null;
         }
         for (Worker worker : list) {
@@ -33,10 +33,15 @@ public class WorkerBO {
         return null;
     }
 
-    public void addWorker() {
+    public boolean addWorker() {
         Worker worker = new Worker();
-        worker.input(this);
+        worker.input();
+        if (worker.getId() == null) {
+            return false;
+        }
+
         list.add(worker);
+        return true;
     }
 
     public void display() {

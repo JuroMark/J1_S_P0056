@@ -3,7 +3,6 @@ package entity;
 import utils.Validate;
 import constant.IMessage;
 import constant.IConstant;
-import bo.WorkerBO;
 
 public class Worker {
     private static int count = 1;
@@ -16,8 +15,8 @@ public class Worker {
         this.id = "W" + count++;
     }
 
-    public Worker(String name, int age, int salary) {
-        this.id = "W" + count++;
+    public Worker(String id, String name, int age, int salary) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.salary = salary;
@@ -51,8 +50,8 @@ public class Worker {
         this.salary = salary;
     }
 
-    public void input(WorkerBO wbo) {
-        System.out.println("Worker Code: " + this.id);
+    public void input() {
+        this.id = String.format("W%d", count++);
         this.name = Validate.getString(
                 "Enter Worker name: ",
                 IConstant.REGULAR_STRING,
@@ -75,5 +74,13 @@ public class Worker {
                 this.name,
                 this.age,
                 this.salary);
+    }
+
+    public void updateSalary(String status, int amount) {
+        if (status.equalsIgnoreCase("up")) {
+            this.salary += amount;
+        } else {
+            this.salary -= amount;
+        }
     }
 }

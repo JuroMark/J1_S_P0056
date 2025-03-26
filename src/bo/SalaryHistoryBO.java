@@ -30,13 +30,6 @@ public class SalaryHistoryBO {
      *                     decreased.
      * @param amount       amount the salary should be adjusted.
      */
-    public void updateSalary(SalaryHistory updateworker, String status, int amount) {
-        if (status.equalsIgnoreCase("up")) {
-            updateworker.setSalary(updateworker.getSalary() + amount);
-        } else {
-            updateworker.setSalary(updateworker.getSalary() - amount);
-        }
-    }
 
     /**
      * Updates worker's salary using the new salary value provided.
@@ -54,33 +47,28 @@ public class SalaryHistoryBO {
             return;
         }
         String status = newSalary > currentSalary ? "up" : "down";
-        int diff = Math.abs(newSalary - currentSalary);
 
-        SalaryHistory sh = new SalaryHistory();
-        worker.getId();
-        sh.setName(worker.getName());
-        sh.setAge(worker.getAge());
-        sh.setSalary(currentSalary);
-        sh.setStatus(status);
-        sh.setDate(java.time.LocalDateTime.now());
+        // Tạo đối tượng SalaryHistory với lương mới (newSalary) thay vì currentSalary
+        SalaryHistory sh = new SalaryHistory(worker.getId(), status, java.time.LocalDateTime.now(),
+                worker.getName(), worker.getAge(), newSalary);
 
-        updateSalary(sh, status, diff);
-        worker.setSalary(sh.getSalary());
+        // Đồng bộ lương của worker với newSalary
+        worker.setSalary(newSalary);
         this.listSalary.add(sh);
         System.out.println("Salary updated successfully. New salary: " + worker.getSalary());
     }
 
     public void add(Worker worker, int amount) {
-        SalaryHistory updateworker = new SalaryHistory();
-        worker.getId();
-        updateworker.setName(worker.getName());
-        updateworker.setSalary(worker.getSalary());
-        updateworker.setAge(worker.getAge());
-        updateworker.input();
+        SalaryHistory sh = new SalaryHistory();
+        // Vì id đã được tự sinh ở Worker, ta không cần cập nhật id
+        sh.setName(worker.getName());
+        sh.setAge(worker.getAge());
+        sh.setSalary(worker.getSalary());
+        sh.input();
 
-        this.updateSalary(updateworker, updateworker.getStatus(), amount);
-        worker.setSalary(updateworker.getSalary());
-        this.listSalary.add(updateworker);
+        worker.updateSalary(sh.getStatus(), amount);
+        worker.setSalary(sh.getSalary());
+        this.listSalary.add(sh);
     }
 
     public void display() {
