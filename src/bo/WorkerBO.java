@@ -35,13 +35,8 @@ public class WorkerBO {
 
     public boolean addWorker() {
         Worker worker = new Worker();
-        worker.input();
-        if (worker.getId() == null) {
-            return false;
-        }
-
-        list.add(worker);
-        return true;
+        worker.input(this);
+        return list.add(worker);
     }
 
     public void display() {

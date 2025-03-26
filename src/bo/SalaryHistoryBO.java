@@ -48,16 +48,14 @@ public class SalaryHistoryBO {
             return;
         }
         String status = newSalary > currentSalary ? "up" : "down";
-        SalaryHistory sh = new SalaryHistory();
-        sh.setName(worker.getName());
-        sh.setAge(worker.getAge());
-        sh.setSalary(newSalary);
-        sh.setStatus(status);
-        sh.setDate(java.time.LocalDateTime.now());
-
+        SalaryHistory updateworker = new SalaryHistory();
+        updateworker.setName(worker.getName());
+        updateworker.setAge(worker.getAge());
+        updateworker.setStatus(status);
+        updateworker.setDate(java.time.LocalDateTime.now());
         worker.setSalary(newSalary);
-        this.listSalary.add(sh);
-
+        updateworker.setSalary(newSalary);
+        this.listSalary.add(updateworker);
         System.out.println("Salary updated successfully. New salary: " + worker.getSalary());
     }
 

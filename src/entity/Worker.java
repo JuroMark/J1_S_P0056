@@ -3,6 +3,7 @@ package entity;
 import utils.Validate;
 import constant.IMessage;
 import constant.IConstant;
+import bo.WorkerBO;
 
 public class Worker {
     private static int count = 1;
@@ -50,7 +51,7 @@ public class Worker {
         this.salary = salary;
     }
 
-    public void input() {
+    public void input(WorkerBO wbo) {
         this.id = String.format("W%d", count++);
         this.name = Validate.getString(
                 "Enter Worker name: ",
