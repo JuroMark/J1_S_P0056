@@ -32,15 +32,13 @@ public class Main {
                 case 2:
                     System.out.println("===== Update Salary =====");
                     Worker worker = null;
-                    while (worker == null) {
-                        String idupdate = Validate.getString(
-                                "Enter worker code you want to update salary: ",
-                                IConstant.VALID_ID, IMessage.ENTER_AGAIN);
-                        worker = workerbo.searchWorkerById(idupdate);
-                        if (worker == null) {
-                            System.out.println("Worker not found!");
-                            break;
-                        }
+                    String idupdate = Validate.getString(
+                            "Enter worker code you want to update salary: ",
+                            IConstant.VALID_ID, IMessage.ENTER_AGAIN);
+                    worker = workerbo.searchWorkerById(idupdate);
+                    if (worker == null) {
+                        System.out.println("Worker not found!");
+                        break;
                     }
 
                     int newSalary = Validate.getInt("Enter new salary: ",
