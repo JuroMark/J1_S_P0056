@@ -44,8 +44,8 @@ public class Main {
                     }
 
                     int newSalary = Validate.getInt("Enter new salary: ",
-                            "Invalid salary", "Please input a number.", 0, Integer.MAX_VALUE);
-                    salarybo.updateWorkerSalary(worker, newSalary);
+                            "Invalid salary", "Please input a number.", 1, Integer.MAX_VALUE);
+                    salarybo.add(worker, newSalary);
                     break;
                 case 3:
                     System.out.println("===== List Worker =====");

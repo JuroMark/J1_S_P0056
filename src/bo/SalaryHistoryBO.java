@@ -40,32 +40,43 @@ public class SalaryHistoryBO {
      * @param worker    the worker whose salary is to be updated.
      * @param newSalary the new salary value.
      */
-    public void updateWorkerSalary(Worker worker, int newSalary) {
+    // public void updateWorkerSalary(Worker worker, int newSalary) {
+    // int currentSalary = worker.getSalary();
+    // if (newSalary == currentSalary) {
+    // System.out.println("New salary is same as current salary. No update
+    // performed.");
+    // return;
+    // }
+    // String status = newSalary > currentSalary ? "up" : "down";
+
+    // SalaryHistory sh = new SalaryHistory(worker.getId(), status,
+    // java.time.LocalDateTime.now(),
+    // worker.getName(), worker.getAge(), newSalary);
+
+    // worker.setSalary(newSalary);
+    // this.listSalary.add(sh);
+    // System.out.println("Salary updated successfully. New salary: " +
+    // worker.getSalary());
+    // }
+
+    public void add(Worker worker, int newSalary) {
         int currentSalary = worker.getSalary();
         if (newSalary == currentSalary) {
             System.out.println("New salary is same as current salary. No update performed.");
             return;
         }
         String status = newSalary > currentSalary ? "up" : "down";
-
-        SalaryHistory sh = new SalaryHistory(worker.getId(), status, java.time.LocalDateTime.now(),
-                worker.getName(), worker.getAge(), newSalary);
-
-        worker.setSalary(newSalary);
-        this.listSalary.add(sh);
-        System.out.println("Salary updated successfully. New salary: " + worker.getSalary());
-    }
-
-    public void add(Worker worker, int amount) {
         SalaryHistory sh = new SalaryHistory();
         sh.setName(worker.getName());
         sh.setAge(worker.getAge());
-        sh.setSalary(worker.getSalary());
-        sh.input();
+        sh.setSalary(newSalary);
+        sh.setStatus(status);
+        sh.setDate(java.time.LocalDateTime.now());
 
-        worker.updateSalary(sh.getStatus(), amount);
-        worker.setSalary(sh.getSalary());
+        worker.setSalary(newSalary);
         this.listSalary.add(sh);
+
+        System.out.println("Salary updated successfully. New salary: " + worker.getSalary());
     }
 
     public void display() {
