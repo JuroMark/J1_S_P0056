@@ -55,7 +55,7 @@ public class Main {
                     break;
                 case 5:
                     System.out.println("===== Load Sample Data =====");
-                    workerbo.setList(Data.listdata());
+                    workerbo.getList().addAll(Data.listdata());
                     System.out.println("Sample data loaded successfully.");
                     break;
                 case 6:
